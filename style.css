@@ -1,0 +1,541 @@
+/* --- GERAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    
+    --body-color: #0a0a0a;
+    --card-color: #161616;
+    --title-color: #ffffff;
+    --text-color: #bdbdbd;
+    --container-color: #111111;
+    --accent-color: #0077B5; 
+    --accent-glow: rgba(0, 119, 181, 0.3);
+    --header-bg: rgba(10, 10, 10, 0.95);
+}
+
+body.light-theme {
+    
+    --body-color: #f9f9f9;
+    --card-color: #ffffff;
+    --title-color: #002d45; 
+    --text-color: #444444;
+    --container-color: #f0f0f0;
+    --accent-color: #0077B5; 
+    --accent-glow: rgba(0, 119, 181, 0.1);
+    --header-bg: rgba(249, 249, 249, 0.95);
+}
+
+body {
+    background-color: var(--body-color);
+    color: var(--text-color);
+    transition: 0.4s;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* --- HEADER --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--header-bg);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.4s;
+}
+
+.logo h1 a {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav ul li {
+    margin: 0 15px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--title-color);
+    font-weight: 300;
+    position: relative;
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+
+.nav a::after {
+    content: "";
+    width: 0%;
+    height: 3px;
+    background-color: var(--accent-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.nav a:hover::after,
+.nav a.active-link::after {
+    width: 100%;
+}
+
+.nav a.active-link {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+ .nav-toggle {
+        display: none;
+    }
+
+.theme-button {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--title-color);
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+.theme-button:hover {
+    color: var(--accent-color);
+}
+
+.sociais i {
+    margin: 0 10px;
+    font-size: 22px;
+    color: var(--accent-color);
+    transition: 0.3s;
+}
+
+.sociais i:hover {
+    transform: translateY(-3px);
+}
+
+.instagram:hover { color: #E4405F; }
+.github:hover { color: var(--title-color); }
+.linkedin:hover { color: #00a6ff; }
+
+/* --- HERO --- */
+#home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-text span {
+    color: var(--accent-color);
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.hero-text h1 {
+    font-size: 60px;
+    margin: 10px 0;
+    color: var(--title-color);
+}
+
+.hero-text h2 {
+    color: var(--text-color);
+    font-weight: 300;
+}
+
+.hero-text button {
+    margin-top: 30px;
+    padding: 12px 35px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 2px solid var(--accent-color);
+    background-color: transparent;
+    color: var(--accent-color);
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.hero-text button:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.hero-img {
+    position: relative;
+}
+
+.circulo {
+    width: 350px;
+    height: 350px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    filter: blur(50px);
+    opacity: 0.4;
+}
+
+.hero-img img {
+    width: 500px;
+    animation: flutuar 4s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-25px); }
+}
+
+/* --- ABOUT --- */
+#about {
+    padding: 100px 0;
+    background-color: var(--container-color);
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.about-img {
+    min-width: 400px;
+    height: 400px;
+    background-image: url("img/caique.png");
+    background-size: cover;
+    background-position: center;
+    border: 3px solid var(--accent-color);
+    border-radius: 30px;
+}
+
+.about-text h1 {
+    font-size: 40px;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+/* --- SKILLS --- */
+#skills {
+    padding: 100px 0;
+}
+
+.skills-container h1 {
+    text-align: center;
+    font-size: 40px;
+    color: var(--accent-color);
+    margin-bottom: 50px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background-color: var(--card-color);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color);
+}
+
+.skill-card i {
+    font-size: 45px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+/* --- PROJECTS --- */
+#projects {
+    padding: 100px 0;
+    background-color: var(--body-color);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 40px;
+    color: var(--accent-color); 
+    margin-bottom: 50px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--card-color);
+    border-radius: 10px;
+    padding: 20px;
+    transition: 0.4s;
+    border: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden; 
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 20px var(--accent-glow);
+}
+
+.project-img-container {
+    width: 100%;
+    height: 180px;
+    background-color: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: 0.5s;
+}
+
+.project-card:hover .project-video {
+    transform: scale(1.05);
+}
+
+.project-info h3 {
+    color: var(--title-color);
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    color: var(--text-color);
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.techs {
+    display: block;
+    color: var(--accent-color); 
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.project-links a {
+    color: var(--title-color);
+    font-size: 20px;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.project-links a:hover {
+    color: var(--accent-color);
+}
+
+/* --- CONTACT --- */
+#contact {
+    padding: 120px 0;
+}
+
+.contact-minimal {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.contact-text-content h1 {
+    font-size: 55px;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.item i { color: var(--accent-color); font-size: 22px; }
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 35px;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-whatsapp:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.contact-visual {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.floating-phone {
+    width: 520px;
+    z-index: 2;
+    animation: flutuarCelular 4s ease-in-out infinite;
+}
+
+@keyframes flutuarCelular {
+    0%, 100% { transform: translateY(0) rotate(5deg); }
+    50% { transform: translateY(-20px) rotate(8deg); }
+}
+
+
+.typewriter > .txt {
+    border-right: 3px solid var(--accent-color);
+    padding-right: 5px;
+}
+
+
+.scroll-top {
+    position: fixed;
+    right: 30px;
+    bottom: -20%;
+    background-color: var(--card-color);
+    color: var(--accent-color); 
+    border: 2px solid var(--accent-color);
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    z-index: 999;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.scroll-top:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.show-scroll {
+    bottom: 30px;
+}
+
+/* --- RESPONSIVIDADE --- */
+
+@media (max-width: 1024px) {
+    .hero, .about, .contact-minimal {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-img img, .about-img {
+        width: 100%;
+        max-width: 400px;
+        min-width: auto;
+    }
+}
+@media (max-width: 950px) {
+    .nav-toggle {
+        display: block;
+        color: var(--accent-color);
+        font-size: 25px;
+        cursor: pointer;
+    }
+
+
+    .nav {
+        position: fixed;
+        top: -100%; 
+        left: 0;
+        width: 100%;
+        background-color: var(--body-color);
+        padding: 60px 0;
+        transition: 0.5s;
+        border-bottom: 2px solid var(--accent-color);
+        z-index: 999;
+    }
+
+    .nav.show-menu { top: 70px; }
+
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .sociais { display: none; }
+
+    .hero {
+        flex-direction: column-reverse;
+        padding-top: 100px;
+    }
+
+    .hero-text h1 { font-size: 35px; }
+    
+    .hero-img img { width: 85%; }
+    
+    .circulo { width: 220px; height: 220px; }
+
+    .about-img { height: 300px; }
+
+    .contact-text-content h1 { font-size: 40px; }
+    
+    .floating-phone { width: 300px; }
+}
